@@ -9,7 +9,159 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      dax_historical_data: {
+        Row: {
+          close: number
+          created_at: string
+          high: number
+          id: string
+          low: number
+          open: number
+          session: string | null
+          timestamp: string
+          volume: number
+        }
+        Insert: {
+          close: number
+          created_at?: string
+          high: number
+          id?: string
+          low: number
+          open: number
+          session?: string | null
+          timestamp: string
+          volume: number
+        }
+        Update: {
+          close?: number
+          created_at?: string
+          high?: number
+          id?: string
+          low?: number
+          open?: number
+          session?: string | null
+          timestamp?: string
+          volume?: number
+        }
+        Relationships: []
+      }
+      ml_trading_rules: {
+        Row: {
+          active: boolean | null
+          created_at: string
+          description: string | null
+          id: string
+          parameters: Json | null
+          performance_score: number | null
+          rule_name: string
+          rule_type: string | null
+          updated_at: string
+          win_rate: number | null
+        }
+        Insert: {
+          active?: boolean | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          parameters?: Json | null
+          performance_score?: number | null
+          rule_name: string
+          rule_type?: string | null
+          updated_at?: string
+          win_rate?: number | null
+        }
+        Update: {
+          active?: boolean | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          parameters?: Json | null
+          performance_score?: number | null
+          rule_name?: string
+          rule_type?: string | null
+          updated_at?: string
+          win_rate?: number | null
+        }
+        Relationships: []
+      }
+      trading_signals: {
+        Row: {
+          created_at: string
+          direction: string | null
+          entry_price: number
+          id: string
+          lot_size: number
+          profit_loss: number | null
+          result: string | null
+          risk_amount: number
+          status: string | null
+          stop_loss: number
+          take_profit: number
+          timestamp: string
+        }
+        Insert: {
+          created_at?: string
+          direction?: string | null
+          entry_price: number
+          id?: string
+          lot_size: number
+          profit_loss?: number | null
+          result?: string | null
+          risk_amount: number
+          status?: string | null
+          stop_loss: number
+          take_profit: number
+          timestamp: string
+        }
+        Update: {
+          created_at?: string
+          direction?: string | null
+          entry_price?: number
+          id?: string
+          lot_size?: number
+          profit_loss?: number | null
+          result?: string | null
+          risk_amount?: number
+          status?: string | null
+          stop_loss?: number
+          take_profit?: number
+          timestamp?: string
+        }
+        Relationships: []
+      }
+      user_settings: {
+        Row: {
+          created_at: string
+          dax_session_preference: string | null
+          default_lot_size: number | null
+          default_risk_reward_ratio: number | null
+          default_stop_loss_pips: number | null
+          id: string
+          timezone: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          dax_session_preference?: string | null
+          default_lot_size?: number | null
+          default_risk_reward_ratio?: number | null
+          default_stop_loss_pips?: number | null
+          id?: string
+          timezone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          dax_session_preference?: string | null
+          default_lot_size?: number | null
+          default_risk_reward_ratio?: number | null
+          default_stop_loss_pips?: number | null
+          id?: string
+          timezone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
